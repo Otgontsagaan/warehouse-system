@@ -1,0 +1,69 @@
+import java.util.*;
+
+class Product {
+    String name;
+    int quantity;
+
+    public Product(String name, int quantity) {}
+}
+
+class Warehouse {
+    String name;
+    Clerk clerk;
+    Inventory inventory;
+
+    public Warehouse(String name) {}
+}
+
+class Clerk {
+    String name;
+    Warehouse warehouse;
+
+    public void receiveProduct(Product product, int qty) {}
+    public void issueProduct(Product product, int qty) {}
+
+    public Receipt createReceipt(List<Product> products) { return null; }
+    public Issue createIssue(List<Product> products) { return null; }
+
+    public Report viewReport(Date start, Date end) { return null; }
+    public void checkStock() {}
+}
+
+class Receipt {
+    List<Product> products;
+    Date date;
+    String supplier;
+
+    public Receipt(List<Product> products, String supplier) {}
+}
+
+class Issue {
+    List<Product> products;
+    Date date;
+    String receiver;
+
+    public Issue(List<Product> products, String receiver) {}
+}
+
+class Inventory {
+    Map<Product, Integer> stock = new HashMap<>();
+
+    public void addProduct(Product product, int qty) {}
+    public void removeProduct(Product product, int qty) {}
+    public int getStock(Product product) { return 0; }
+}
+
+class Report {
+    Date startDate;
+    Date endDate;
+
+    public void generate() {}
+}
+
+class StockCount {
+    Product product;
+    int realQuantity;
+    Date date;
+
+    public void count(Product product, int realQty) {}
+}
